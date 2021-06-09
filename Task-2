@@ -1,0 +1,8 @@
+from urllib.request import urlopen
+from bs4 import BeautifulSoup as soup
+import re
+url=urlopen("https://kloudone.com/")
+url_read=soup(url.read())
+for link in url_read.find("div").findAll('a'):
+    if "href"in link.attrs:
+        print(link["href"])
